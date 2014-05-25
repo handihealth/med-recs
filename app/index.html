@@ -41,6 +41,49 @@
             <h1>med recs running!</h1>
           </div>
         </div>
+
+        <div data-bind="foreach: medications" class="container">
+          <div class="row panel panel-default">
+            <div class="panel-body">
+              <div class="panel panel-default col-md-4">
+                <div class="panel-body">
+                  <p data-bind="text: name"/>
+                  <p data-bind="text: originalDose"/>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div btn="btn-group-vertical" >
+                      <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
+                              class="btn btn-default" 
+                              style="width:100%" 
+                              type="submit">I take this as prescribed</button>
+
+                      <button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
+                              class="btn btn-default" 
+                              style="width:100%" 
+                              type="submit">I don't take this at all</button>
+
+                      <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
+                              class="btn btn-default" 
+                              style="width:100%" 
+                              type="submit">I take a different dose</button>
+
+                </div>
+              </div>
+    
+              <div data-bind="visible: statusSet" class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p data-bind="text: name"/>
+                    <p data-bind="text: newDose"/>
+                    <p data-bind="text: status"/>  
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div></div>
+
         <div class="row">
           <p data-bind="css: { 'alert-success': status()==='active', 'alert-warning': status()!=='active'}" class="col-md-6 col-md-offset-3 entry-home">Knockout data binding:<span data-bind="text: status" class="status">Inactive</span></p>
         </div>
@@ -48,66 +91,6 @@
           <p class="col-md-6 col-md-offset-3 entry-home alert-success"><span><a href="http://fortawesome.github.io/Font-Awesome">Font Awesome icons </a>are available</span><i class="fa fa-check-square-o"></i></p>
         </div>
 
-        <table class="table table-condensed">
-          <tbody data-bind="foreach: medications"> 
-            <tr>
-              <td> 
-                <p data-bind="text: name"/>
-                <p data-bind="text: originalDose"/>
-              </td>
-              <td>
-                <div btn="btn-group-vertical">
-                  <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
-                          class="btn btn-default" 
-                          style="width:100%" 
-                          type="submit">I take this as prescribed</button>
-
-                  <button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
-                          class="btn btn-default" 
-                          style="width:100%" 
-                          type="submit">I don't take this at all</button>
-
-                  <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
-                          class="btn btn-default" 
-                          style="width:100%" 
-                          type="submit">I take a different dose</button>
-
-                </div>
-              </td>
-              <td  data-bind="visible: statusSet"> 
-                <div>
-                  <p data-bind="text: name"/>
-                  <p data-bind="text: newDose"/>
-                  <p data-bind="text: status"/>
-                <div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!--
-        <table class="table table-condensed">
-          <tbody data-bind="foreach: medications"> 
-            <tr>
-              <td rowspan="3"> 
-                <b data-bind="text: name"/>
-                <span data-bind="text: dose"/>
-              </td>
-              <td><button class="btn btn-default" type="submit">Button</button></td>
-              <td rowspan="3"> 
-                <b data-bind="text: name"/>
-                <span data-bind="text: dose"/>
-              </td>
-            </tr>
-            <tr>
-              <td><button class="btn btn-default" type="submit">Button</button></td>
-            </tr>
-            <tr>
-              <td><button class="btn btn-default" type="submit">Button</button></td>
-            </tr>
-          </tbody>
-        </table>
-        -->
       </div>
     </div>
     <script>window.knockoutBootstrapDebug = true;</script>
