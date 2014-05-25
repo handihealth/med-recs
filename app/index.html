@@ -59,11 +59,14 @@
                               style="width:100%" 
                               type="submit">I take this as prescribed</button>
 
-                      <button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
+                      <!--<button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
                               class="btn btn-default" 
                               style="width:100%" 
-                              type="submit">I don't take this at all</button>
-
+                              type="submit">I don't take this at all</button> -->
+						<button class="btn btn-default" style="width:100%" data-toggle="modal" data-target="#DontTakeModal" data-bind="click: function(med, event) { med.setStatus('Not taken') }">
+							I don't take this at all
+						</button>
+						
                       <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
                               class="btn btn-default" 
                               style="width:100%" 
@@ -93,6 +96,23 @@
 
       </div>
     </div>
+	<div class="modal fade" id="DontTakeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">I don't take any</h4>
+      </div>
+      <div class="modal-body">
+        Comment: <textarea required="true" rows="4" cols="50"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button data-dismiss="modal" type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <script>window.knockoutBootstrapDebug = true;</script>
     <script data-main="assets/js/config" src="bower_components/requirejs/require.js"></script>
   </body>
