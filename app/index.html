@@ -43,7 +43,9 @@
           <div class="col-md-2 col-md-offset-10 row">
           <button class="btn btn-primary" 
           data-toggle="modal" data-target="#newMedsModal">Add a new Medication</button>
-          <button class="btn btn-default" data-bind="click: sendData" >Send</button>
+		  <button class="btn btn-default" 
+		  data-bind="click: sendData" >Send</button>
+       
         </div>
         </div>
         
@@ -105,8 +107,8 @@
         <h4 class="modal-title">I have started taking a new medication</h4>
       </div>
       <div class="modal-body">
-    <p>Name and Preperation</p>
-        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preperation">
+    <p>Name and Preparation</p>
+        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preparation">
     <p>Dose</p>
         <input id="txtNewMedDose" type="text" class="form-control" placeholder="New medication dose">
         <p>Because</p>
@@ -141,7 +143,7 @@
         <h4 class="modal-title">I have stopped taking <span data-bind="text: name" /></h4>
       </div>
       <div class="modal-body">
-        <p>Because</p>
+        <p><b>Because</b></p>
         <input id="txtNotTakingReason" type="text" class="form-control" placeholder="Reason">
       </div>
         <div class="modal-footer">
@@ -163,7 +165,7 @@
         <h4 class="modal-title">I take a different dose of <span data-bind="text: name" /></h4>
       </div>
       <div class="modal-body">
-        <p>Because</p>
+        <p><b>Because</b></p>
         <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
       </div>
         <div class="modal-footer">
