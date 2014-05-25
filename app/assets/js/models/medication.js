@@ -15,6 +15,15 @@ function (ko) {
 		self.statusSet = ko.computed(function () {
 			return self.status() !== '';
 		});
+		self.coloredstatus = ko.computed(function() {
+			var color;
+			switch (self.status()) {
+				case 'As prescribed': bgColor = 'green'; break;
+				case 'Changed dose': bgColor = '#FBB917'; break;
+				case 'Not taken': bgColor = 'red'; break;								
+			}
+			return color;
+		});
 
 		self.notUserCreated = ko.computed(function () {
 			return !self.userCreated();

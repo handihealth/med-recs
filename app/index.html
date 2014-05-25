@@ -49,7 +49,7 @@
 
         <div data-bind="foreach: medications" class="container">
           <div class="row panel panel-default">
-            <div class="panel-body">
+            <div class="panel-body" data-bind="style: { background: coloredstatus() }">
               <div class="panel panel-default col-md-4" >
                 <div class="panel-body" data-bind="visible: notUserCreated">
                   <p data-bind="text: name"/>
