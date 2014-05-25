@@ -134,7 +134,7 @@ function ($, Medication) {
 				    "ctx": {
 				        "language": "en",
 				        "territory": "GB",
-				        "composer_name": "Medresca Wurst"
+				        "composer_name": "Stephen Alison"
 				    },
 				    "meds_rec_report": {
 				        "openhr_medication_events": medsjson,
