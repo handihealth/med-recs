@@ -56,7 +56,8 @@ function ($, Medication) {
 		};
 
 		self.jsonForSingleItem = function (medication) {
-			var obj = {"openhr_medication": [
+			var obj = {
+				"openhr_medication": [
                     {
                         "medication_order": [
                             {
@@ -72,7 +73,7 @@ function ($, Medication) {
                                                 "dose_directions": [
                                                     {
                                                         "dose_directions_description": [
-                                                            medication.originaDose
+                                                            'test'
                                                         ]
                                                     }
                                                 ]
@@ -104,7 +105,19 @@ function ($, Medication) {
                             }
                         ]
                  }
-                ]};
+                ],
+			"medicine_reconciliation":[
+                    {
+                        "discrepancy_identified": [
+                            {
+                                "|code": "at0030",
+                                "|value": "Discrepancy identified",
+                                "|terminology": "local"
+                            }
+                        ]
+                    }
+                    ],
+            };
             return obj;	
 		};
 
@@ -112,7 +125,7 @@ function ($, Medication) {
 		self.getjson = function (medicationList) {
 
 			var medsjson = [];
-			for (var i=0; i<medicationList.length; i++) {
+			for (var i=0; i<1; i++) {
 				var jsn = self.jsonForSingleItem(medicationList[i]);
 				medsjson.push(jsn);
 			}
@@ -125,17 +138,7 @@ function ($, Medication) {
     },
     "meds_rec_report": {
         "openhr_medication_events": medsjson,
-                "medicine_reconciliation":[
-                    {
-                        "discrepancy_identified": [
-                            {
-                                "|code": "at0030",
-                                "|value": "Discrepancy identified",
-                                "|terminology": "local"
-                            }
-                        ]
-                    }
-                    ]
+                
             },
         "context": [
             {
