@@ -1,0 +1,87 @@
+{
+    "ctx": {
+        "language": "en",
+        "territory": "GB",
+        "composer_name": "Medresca Wurst"
+    },
+    "meds_rec_report": {
+        "openhr_medication_events": [
+            {
+                "openhr_medication": [
+                    {
+                        "medication_order": [
+                            {
+                                "medication_order_activity": [
+                                    {
+                                        "medication_item": [
+                                            {
+                                                "medication_name": [
+                                                    {
+                                                        "|other": "Locorten Vioform ear drops (Amdipharm)"
+                                                    }
+                                                ],
+                                                "dose_directions": [
+                                                    {
+                                                        "dose_directions_description": [
+                                                            "2 DROPS THREE TIMES A DAY"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ],
+
+                                        "timing": [
+                                            {
+                                                "|value": "123",
+                                                "|formalism": "Some_dummy_formalism"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "medication_status": [
+                                    {
+                                        "medication_course_status": [
+                                            {
+                                                "|code": "at0019",
+                                                "|value": "Discontinued",
+                                                "|terminology": "local"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "narrative": [
+                                    "Locorten Vioform ear drops (Amdipharm) 2 DROPS THREE TIMES A DAY 7.5 ml"
+                                ]
+                            }
+                        ]
+                 }
+                ],
+                "medicine_reconciliation":[
+                    {
+                        "discrepancy_identified": [
+                            {
+                                "|code": "at0030",
+                                "|value": "Discrepancy identified",
+                                "|terminology": "local"
+                            }
+                        ]
+                    }
+                    ]
+            }
+        ],
+        "context": [
+            {
+                "setting": [
+                    {
+                        "|code": "233",
+                        "|value": "secondary nursing care",
+                        "|terminology": "openehr"
+                    }
+                ],
+                "start_time": [
+                    "2014-09-02T00:00:00.000+02:00"
+                ]
+            }
+        ]
+    }
+}
