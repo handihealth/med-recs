@@ -16,13 +16,14 @@ function (ko) {
 			return self.status() !== '';
 		});
 		self.coloredstatus = ko.computed(function() {
-			var color;
+			var Color;
 			switch (self.status()) {
-				case 'As prescribed': bgColor = 'green'; break;
-				case 'Changed dose': bgColor = '#FBB917'; break;
-				case 'Not taken': bgColor = 'red'; break;								
+				case 'As prescribed':  Color = 'green'; break;
+				case 'Changed Dose': Color = '#FBB917'; break;
+				case 'Not Taking': Color = 'red'; break;
+				case 'Newly added': Color = 'blue'; break;						
 			}
-			return color;
+			return Color;
 		});
 
 		self.notUserCreated = ko.computed(function () {
