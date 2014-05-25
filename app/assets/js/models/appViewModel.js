@@ -34,11 +34,11 @@ function ($, ko, EHRService, Medication) {
 			ko.applyBindings(med, modal);
 		};
 
-		self.addNewMedication = function () {
+		self.addNewMedication = function (name, dose, reason) {
 			console.log('adding new med');
-			var newMed = new Medication({value:'PAracetemol', dose:'1000mg'});
+			var newMed = new Medication({value:name, dose:dose});
 			newMed.userCreated(true);
-			newMed.setStatus('Newly added', 'User note here');
+			newMed.setStatus('Newly added', reason);
 			self.medications.push(newMed);
 		};
 	};

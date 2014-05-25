@@ -113,7 +113,11 @@
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button data-bind="click: function(appVM, event){ appVM.addNewMedication() }" 
+          <button data-bind="click: function(appVM, event){ 
+                                      var name = $('#txtNewMedName').val();
+                                      var dose = $('#txtNewMedDose').val();
+                                      var reason = $('#txtNewMedReason').val();
+                                      appVM.addNewMedication(name, dose, reason); }" 
                                       data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
