@@ -17,13 +17,13 @@ function ($, ko, EHRService) {
 		self.status = ko.observable('active');
 		self.ehr = new EHRService();
 		self.ehr.login(self.loadMedications);
-		
-		self.showModal = function () {
-			console.log('show modal function');
+
+		self.showModal = function (med, event) {
+			console.log('show modal function '+med);
 			var modal = document.getElementById('changedDoseModal');
 			console.log('modal is ' + modal);
 			ko.cleanNode(modal);
-			ko.applyBindings(self.medications()[0], modal);
+			ko.applyBindings(med, modal);
 		};
 	};
 });

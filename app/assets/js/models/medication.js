@@ -19,6 +19,8 @@ function (ko) {
 			self.status(newStatus);
 		};
 
-		//self.setPatientNote = function
+		self.setPatientNote = function (newNote) {
+			self.patientNote(newNote);
+		}
 	};
 });
