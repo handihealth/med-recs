@@ -39,7 +39,7 @@ function ($, ko, EHRService, Medication) {
 			var newMed = new Medication({value:name, dose:dose});
 			newMed.userCreated(true);
 			newMed.setStatus('Newly added', reason);
-			self.medications.push(newMed);
+			self.medications.unshift(newMed);
 		};
 	};
 });
