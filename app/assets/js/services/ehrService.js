@@ -42,8 +42,118 @@ function ($, Medication) {
 		};
 
 		self.postUpdateMedications = function (medicationsList) {
-
+			$.ajax({type: 'POST',
+				url: self.baseUrl + '/composition?ehrId=' + self.ehrId + 
+									'&templateId=' + encodeURIComponent('Meds Rec Report (composition)') + 
+									'&commiterName=handi' +
+									'&format=STRUCTURED',
+				headers: {
+					contentType: "application/json",
+					"Ehr-Session": self.sessionId
+				},
+				data: JSON.stringify(self.getjson(medicationsList))
+			});
 		};
 
-	};
+		self.jsonForSingleItem = function (medication) {
+			var obj = {"openhr_medication": [
+                    {
+                        "medication_order": [
+                            {
+                                "medication_order_activity": [
+                                    {
+                                        "medication_item": [
+                                            {
+                                                "medication_name": [
+                                                    {
+                                                        "|other": medication.name()
+                                                    }
+                                                ],
+                                                "dose_directions": [
+                                                    {
+                                                        "dose_directions_description": [
+                                                            medication.originaDose
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ],
+
+                                        "timing": [
+                                            {
+                                                "|value": "123",
+                                                "|formalism": "Some_dummy_formalism"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "medication_status": [
+                                    {
+                                        "medication_course_status": [
+                                            {
+                                                "|code": "at0019",
+                                                "|value": "Discontinued",
+                                                "|terminology": "local"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "narrative": [
+                                    "Locorten Vioform ear drops (Amdipharm) 2 DROPS THREE TIMES A DAY 7.5 ml"
+                                ]
+                            }
+                        ]
+                 }
+                ]};
+            return obj;	
+		};
+
+
+		self.getjson = function (medicationList) {
+
+			var medsjson = [];
+			for (var i=0; i<medicationList.length; i++) {
+				var jsn = self.jsonForSingleItem(medicationList[i]);
+				medsjson.push(jsn);
+			}
+
+			return {
+    "ctx": {
+        "language": "en",
+        "territory": "GB",
+        "composer_name": "Medresca Wurst"
+    },
+    "meds_rec_report": {
+        "openhr_medication_events": medsjson,
+                "medicine_reconciliation":[
+                    {
+                        "discrepancy_identified": [
+                            {
+                                "|code": "at0030",
+                                "|value": "Discrepancy identified",
+                                "|terminology": "local"
+                            }
+                        ]
+                    }
+                    ]
+            },
+        "context": [
+            {
+                "setting": [
+                    {
+                        "|code": "233",
+                        "|value": "secondary nursing care",
+                        "|terminology": "openehr"
+                    }
+                ],
+                "start_time": [
+                    "2015-01-01T00:00:00.000+02:00"
+                ]
+            }
+        ]
+    }
+}
+		}
+
+	
 });

@@ -40,5 +40,7 @@ function (ko) {
 		self.setPatientNote = function (newNote) {
 			self.patientNote(newNote);
 		};
+
+		
 	};
 });

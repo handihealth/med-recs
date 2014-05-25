@@ -41,5 +41,9 @@ function ($, ko, EHRService, Medication) {
 			newMed.setStatus('Newly added', reason);
 			self.medications.unshift(newMed);
 		};
+
+		self.sendData = function () {
+			self.ehr.postUpdateMedications(self.medications());
+		}
 	};
 });
