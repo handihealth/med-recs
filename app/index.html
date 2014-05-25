@@ -56,8 +56,8 @@
                 <div btn="btn-group-vertical" >
                       <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
                               class="btn btn-default" 
-                              style="width:100%" 
-                              type="submit">I take this as prescribed</button>
+                              style="width:100%; color:green; font-weight:bold;" 
+                              type="submit"><i class="fa fa-check"></i> I take this as prescribed</button>
 
                       <!--
 					  <button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
@@ -66,9 +66,9 @@
                               type="submit">I don't take this at all</button>
 					  -->
                       <button class="btn btn-default" 
-							  style="width:100%"
+							  style="width:100%; color:#FBB917; font-weight:bold;" 
                               data-bind="click: $root.showModalDoseStopped"
-                              data-toggle="modal" data-target="#stoppedDoseModal">I don't take this at all</button>					  
+                              data-toggle="modal" data-target="#stoppedDoseModal"><i class="fa fa-times"></i> I don't take this at all</button>					  
                       <!--
                       <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
                               class="btn btn-default" 
@@ -76,9 +76,9 @@
                               type="submit">I take a different dose</button>
                       -->
                       <button class="btn btn-default" 
-							                style="width:100%"
+							  style="width:100%; color:red; font-weight:bold;" 
                               data-bind="click: $root.showModalDoseChanged"
-                              data-toggle="modal" data-target="#changedDoseModal">I take a different dose</button>
+                              data-toggle="modal" data-target="#changedDoseModal"><i class="fa fa-exclamation-triangle"></i> I take a different dose</button>
 
                 </div>
               </div>
