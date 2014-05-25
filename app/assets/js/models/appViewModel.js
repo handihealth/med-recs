@@ -33,5 +33,9 @@ function ($, ko, EHRService) {
 			ko.cleanNode(modal);
 			ko.applyBindings(med, modal);
 		};
+
+		self.addNewMedication = function () {
+
+		};
 	};
 });
