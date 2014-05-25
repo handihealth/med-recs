@@ -45,7 +45,7 @@ function ($, Medication) {
 			$.ajax({type: 'POST',
 				url: self.baseUrl + '/composition?ehrId=' + self.ehrId + 
 									'&templateId=' + encodeURIComponent('Meds Rec Report (composition)') + 
-									'&commiterName=handi' +
+									'&commiterName=stephenallison' +
 									'&format=STRUCTURED',
 				headers: {
 					contentType: "application/json",
@@ -73,7 +73,7 @@ function ($, Medication) {
                                                 "dose_directions": [
                                                     {
                                                         "dose_directions_description": [
-                                                            'test'
+                                                            medication.originalDose
                                                         ]
                                                     }
                                                 ]
@@ -100,7 +100,7 @@ function ($, Medication) {
                                     }
                                 ],
                                 "narrative": [
-                                    "Locorten Vioform ear drops (Amdipharm) 2 DROPS THREE TIMES A DAY 7.5 ml"
+                                    medication.name() + ' ' +medication.originalDose
                                 ]
                             }
                         ]
