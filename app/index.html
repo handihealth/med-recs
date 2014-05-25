@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>med recs</title>
+    <title>medsrecDIY</title>
     <!--CSS generated from SASS 
     -->
     <link href="assets/css/main.css" rel="stylesheet">
@@ -38,10 +38,13 @@
       <div id="home">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <h1>med recs running!</h1>
-            <button class="btn btn-default">Add a new Medication</button>
+            <h1>medsrecDIY running!</h1>
           </div>
+          <div class="col-md-2 col-md-offset-10 row">
+          <button class="btn btn-default" data-bind="click: addNewMedication">Add a new Medication</button>
         </div>
+        </div>
+        
 
         <div data-bind="foreach: medications" class="container">
           <div class="row panel panel-default">
@@ -151,6 +154,27 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
+      <div class="modal fade" id="newMModal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">I have started taking a new medication</h4>
+      </div>
+      <div class="modal-body">
+        <p>Because</p>
+        <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button data-bind="click: function(med, event){ 
+                                      med.setStatus('Changed regimen',$('#txtChangedDoseReason').val());
+                                      $('#txtChangedDoseReason').val('') }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
     <script>window.knockoutBootstrapDebug = true;</script>
     <script data-main="assets/js/config" src="bower_components/requirejs/require.js"></script>
