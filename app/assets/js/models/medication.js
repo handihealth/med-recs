@@ -15,6 +15,16 @@ function (ko) {
 		self.statusSet = ko.computed(function () {
 			return self.status() !== '';
 		});
+		self.coloredstatus = ko.computed(function() {
+			var Color;
+			switch (self.status()) {
+				case 'As prescribed':  Color = 'green'; break;
+				case 'Changed Dose': Color = '#FBB917'; break;
+				case 'Not Taking': Color = 'red'; break;
+				case 'Newly added': Color = 'blue'; break;						
+			}
+			return Color;
+		});
 
 		self.notUserCreated = ko.computed(function () {
 			return !self.userCreated();
