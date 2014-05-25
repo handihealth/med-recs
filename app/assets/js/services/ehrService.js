@@ -106,7 +106,18 @@ function ($, Medication) {
                         ]
                  }
                 ],
-			};
+			"medicine_reconciliation":[
+                    {
+                        "discrepancy_identified": [
+                            {
+                                "|code": "at0030",
+                                "|value": "Discrepancy identified",
+                                "|terminology": "local"
+                            }
+                        ]
+                    }
+                    ],
+            };
             return obj;	
 		};
 
@@ -114,38 +125,36 @@ function ($, Medication) {
 		self.getjson = function (medicationList) {
 
 			var medsjson = [];
-			for (var i=0; i<1; i++) {
+			for (var i=0; i<medicationList.length; i++) {
 				var jsn = self.jsonForSingleItem(medicationList[i]);
 				medsjson.push(jsn);
 			}
 
 			return {
-    "ctx": {
-        "language": "en",
-        "territory": "GB",
-        "composer_name": "Medresca Wurst"
-    },
-    "meds_rec_report": {
-        "openhr_medication_events": medsjson,
-                
-            },
-        "context": [
-            {
-                "setting": [
-                    {
-                        "|code": "233",
-                        "|value": "secondary nursing care",
-                        "|terminology": "openehr"
-                    }
-                ],
-                "start_time": [
-                    "2015-01-01T00:00:00.000+02:00"
-                ]
-            }
-        ]
-    }
-}
-		}
+				    "ctx": {
+				        "language": "en",
+				        "territory": "GB",
+				        "composer_name": "Medresca Wurst"
+				    },
+				    "meds_rec_report": {
+				        "openhr_medication_events": medsjson,
+				        "context": [
+				            {
+				                "setting": [
+				                    {
+				                        "|code": "233",
+				                        "|value": "secondary nursing care",
+				                        "|terminology": "openehr"
+				                    }
+				                ],
+				                "start_time": [
+				                    "2015-01-01T00:00:00.000+02:00"
+				                ]
+				            }
+				        ]
+				    }
+				}
+		};
 
 	
-});
+}});
