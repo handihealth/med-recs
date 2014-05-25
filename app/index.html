@@ -50,7 +50,7 @@
         <div data-bind="foreach: medications" class="container">
           <div class="row panel panel-default">
             <div class="panel-body" data-bind="style: { background: coloredstatus() }">
-              <div class="panel panel-default col-md-4" >
+              <div class="panel panel-default col-md-4" data-bind="style: function(data){ if (data.notUserCreated()) {return {visibility:'hidden'};} else {return {visibility:'hidden'};}}">
                 <div class="panel-body" data-bind="visible: notUserCreated">
                   <p data-bind="text: name"/>
                   <p data-bind="text: originalDose"/>
@@ -104,8 +104,8 @@
         <h4 class="modal-title">I have started taking a new medication</h4>
       </div>
       <div class="modal-body">
-    <p>Name and Preparation</p>
-        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preparation">
+    <p>Name and Preperation</p>
+        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preperation">
     <p>Dose</p>
         <input id="txtNewMedDose" type="text" class="form-control" placeholder="New medication dose">
         <p>Because</p>
@@ -140,7 +140,7 @@
         <h4 class="modal-title">I have stopped taking <span data-bind="text: name" /></h4>
       </div>
       <div class="modal-body">
-        <p><b>Because</b></p>
+        <p>Because</p>
         <input id="txtNotTakingReason" type="text" class="form-control" placeholder="Reason">
       </div>
         <div class="modal-footer">
@@ -162,7 +162,7 @@
         <h4 class="modal-title">I take a different dose of <span data-bind="text: name" /></h4>
       </div>
       <div class="modal-body">
-        <p><b>Because</b></p>
+        <p>Because</p>
         <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
       </div>
         <div class="modal-footer">
@@ -175,7 +175,6 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
 
     <script>window.knockoutBootstrapDebug = true;</script>
     <script data-main="assets/js/config" src="bower_components/requirejs/require.js"></script>
