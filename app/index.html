@@ -34,7 +34,7 @@
         -->
       </div>
     </div>
-    <div class="container">
+    <div id="medsContainer" class="container">
       <div id="home">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
@@ -63,11 +63,15 @@
                               class="btn btn-default" 
                               style="width:100%" 
                               type="submit">I don't take this at all</button>
-
+                      <!--
                       <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
                               class="btn btn-default" 
                               style="width:100%" 
                               type="submit">I take a different dose</button>
+                      -->
+                      <button class="btn btn-default" 
+                              data-bind="click: $root.showModal"
+                              data-toggle="modal" data-target="#mymodal">Modal</button>
 
                 </div>
               </div>
@@ -84,15 +88,36 @@
           </div>
         </div></div>
 
-        <div class="row">
-          <p data-bind="css: { 'alert-success': status()==='active', 'alert-warning': status()!=='active'}" class="col-md-6 col-md-offset-3 entry-home">Knockout data binding:<span data-bind="text: status" class="status">Inactive</span></p>
-        </div>
+        
+
+      </div>
+    </div>
+
+
         <div class="row">
           <p class="col-md-6 col-md-offset-3 entry-home alert-success"><span><a href="http://fortawesome.github.io/Font-Awesome">Font Awesome icons </a>are available</span><i class="fa fa-check-square-o"></i></p>
         </div>
 
+    <div class="modal fade" id="mymodal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
       </div>
-    </div>
+      <div class="modal-body">
+        <p>Name</p>
+        <p data-bind="text: name" />
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
     <script>window.knockoutBootstrapDebug = true;</script>
     <script data-main="assets/js/config" src="bower_components/requirejs/require.js"></script>
   </body>
