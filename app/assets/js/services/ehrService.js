@@ -41,5 +41,9 @@ function ($, Medication) {
 			});
 		};
 
+		self.postUpdateMedications = function (medicationsList) {
+
+		};
+
 	};
 });
