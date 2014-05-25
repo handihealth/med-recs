@@ -20,7 +20,7 @@ function ($, ko, EHRService) {
 
 		self.showModal = function () {
 			console.log('show modal function');
-			var modal = document.getElementById('mymodal');
+			var modal = document.getElementById('changedDoseModal');
 			console.log('modal is ' + modal);
 			ko.cleanNode(modal);
 			ko.applyBindings(self.medications()[0], modal);
