@@ -106,18 +106,7 @@ function ($, Medication) {
                         ]
                  }
                 ],
-			"medicine_reconciliation":[
-                    {
-                        "discrepancy_identified": [
-                            {
-                                "|code": "at0030",
-                                "|value": "Discrepancy identified",
-                                "|terminology": "local"
-                            }
-                        ]
-                    }
-                    ],
-            };
+			};
             return obj;	
 		};
 
