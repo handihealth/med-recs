@@ -115,11 +115,12 @@
       </div>
       <div class="modal-body">
         <p>Because</p>
-        <input type="text" class="form-control" placeholder="Reason">
+        <input id="reasonTextBox" type="text" class="form-control" placeholder="Reason">
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button data-bind="click: function(med, event){ med.setStatus('Not Taking',$('#reasonTextBox').val()
+) }" data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
