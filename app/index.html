@@ -56,7 +56,7 @@
                 </div>
               </div>
               
-              <div class="col-md-4">
+              <div class="col-md-4" data-bind="visible: notUserCreated">
                 <div btn="btn-group-vertical" >
                       <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
                               class="btn btn-default" 
