@@ -114,12 +114,13 @@
       </div>
       <div class="modal-body">
         <p>Because</p>
-        <input id="reasonTextBox" type="text" class="form-control" placeholder="Reason">
+        <input id="txtNotTakingReason" type="text" class="form-control" placeholder="Reason">
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button data-bind="click: function(med, event){ med.setStatus('Not Taking',$('#reasonTextBox').val()
-) }" data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+          <button data-bind="click: function(med, event){ 
+                                      med.setStatus('Not Taking',$('#txtNotTakingReason').val()) }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -134,11 +135,13 @@
       </div>
       <div class="modal-body">
         <p>Because</p>
-        <input type="text" class="form-control" placeholder="New dose and reason">
+        <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button data-bind="click: function(med, event){ 
+                                      med.setStatus('Changed regimen',$('#txtChangedDoseReason').val()) }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
