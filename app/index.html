@@ -42,8 +42,7 @@
           </div>
           <div class="col-md-2 col-md-offset-10 row">
           <button class="btn btn-primary" 
-          data-toggle="modal" data-target="#newMedsModal"
-		  data-bind="click: addNewMedication">Add a new Medication</button>
+          data-toggle="modal" data-target="#newMedsModal">Add a new Medication</button>
         </div>
         </div>
         
@@ -58,30 +57,20 @@
                 </div>
               </div>
               
-              <div class="col-md-4" data-bind="visible: notUserCreated">
-                <div btn="btn-group-vertical" >
+              <div class="col-md-4" >
+                <div btn="btn-group-vertical" data-bind="visible: notUserCreated">
                       <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
                               class="btn btn-default" 
                               style="width:100%; color:green; font-weight:bold;" 
                               type="submit"><i class="fa fa-check"></i> I take this as prescribed</button>
-					  <!--
-                      <button data-bind="click: function(med, event) { med.setStatus('Changed dose') }" 
-                              class="btn btn-default" 
-                              style="width:100%" 
-                              type="submit">I take a different dose</button>
-                      -->
+
                       <button class="btn btn-default" 
-							  style="width:100%; color:#FBB917; font-weight:bold;" 
+							                style="width:100%; color:#FBB917; font-weight:bold;" 
                               data-bind="click: $root.showModalDoseChanged"
                               data-toggle="modal" data-target="#changedDoseModal"><i class="fa fa-exclamation-triangle"></i> I take a different dose</button>
-                      <!--
-					  <button data-bind="click: function(med, event) { med.setStatus('Not taken') }" 
-                              class="btn btn-default" 
-                              style="width:100%" 
-                              type="submit">I don't take this at all</button>
-					  -->
+                      
                       <button class="btn btn-default" 
-							  style="width:100%; color:red; font-weight:bold;" 
+							                style="width:100%; color:red; font-weight:bold;" 
                               data-bind="click: $root.showModalDoseStopped"
                               data-toggle="modal" data-target="#stoppedDoseModal"><i class="fa fa-times"></i> I don't take this at all</button>					  
                     
@@ -106,6 +95,30 @@
         
 
       </div>
+
+      <div class="modal fade" id="newMedsModal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">I have started taking a new medication</h4>
+      </div>
+      <div class="modal-body">
+    <p>Name and Preperation</p>
+        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preperation">
+    <p>Dose</p>
+        <input id="txtNewMedDose" type="text" class="form-control" placeholder="New medication dose">
+        <p>Because</p>
+        <input id="txtNewMedReason" type="text" class="form-control" placeholder="New medication reason">
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button data-bind="click: function(appVM, event){ appVM.addNewMedication() }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
     </div>
 
 

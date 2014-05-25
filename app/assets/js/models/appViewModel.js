@@ -35,6 +35,7 @@ function ($, ko, EHRService, Medication) {
 		};
 
 		self.addNewMedication = function () {
+			console.log('adding new med');
 			var newMed = new Medication({value:'PAracetemol', dose:'1000mg'});
 			newMed.userCreated(true);
 			newMed.setStatus('Newly added', 'User note here');
