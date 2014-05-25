@@ -16,6 +16,10 @@ function (ko) {
 			return self.status() !== '';
 		});
 
+		self.notUserCreated = ko.computed(function () {
+			return !self.userCreated();
+		});
+
 		self.setStatus = function (newStatus, note) {
 			self.status(newStatus);
 			if (note !== undefined) {
