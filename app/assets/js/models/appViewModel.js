@@ -17,7 +17,7 @@ function ($, ko, EHRService) {
 		self.status = ko.observable('active');
 		self.ehr = new EHRService();
 		self.ehr.login(self.loadMedications);
-
+		
 		self.showModal = function () {
 			console.log('show modal function');
 			var modal = document.getElementById('changedDoseModal');

@@ -70,8 +70,8 @@
                               type="submit">I take a different dose</button>
                       -->
                       <button class="btn btn-default" 
-							  style="width:100%"
-                              data-bind="click: $root.showModal"
+							                style="width:100%"
+                              data-bind="click: function() { $root.showModal }"
                               data-toggle="modal" data-target="#changedDoseModal">I take a different dose</button>
 
                 </div>
@@ -83,6 +83,7 @@
                     <p data-bind="text: name"/>
                     <p data-bind="text: newDose"/>
                     <p data-bind="text: status"/>  
+                    <p data-bind="text: patientNote" />
                   </div>
                 </div>
               </div>

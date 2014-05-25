@@ -9,6 +9,7 @@ function (ko) {
 		self.originalDose = params.dose;
 		self.newDose = ko.observable(self.originalDose);
 		self.status = ko.observable('');
+		self.patientNote = ko.observable('No notes');
 
 		self.statusSet = ko.computed(function () {
 			return self.status() !== '';
@@ -17,5 +18,7 @@ function (ko) {
 		self.setStatus = function (newStatus) {
 			self.status(newStatus);
 		};
+
+		//self.setPatientNote = function
 	};
 });
