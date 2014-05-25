@@ -10,6 +10,7 @@ function (ko) {
 		self.newDose = ko.observable(self.originalDose);
 		self.status = ko.observable('');
 		self.patientNote = ko.observable('No notes');
+		self.userCreated = ko.observable(false);
 
 		self.statusSet = ko.computed(function () {
 			return self.status() !== '';

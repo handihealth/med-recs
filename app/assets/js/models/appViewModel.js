@@ -2,8 +2,8 @@
 
 /* global define:true*/
 /* global document:true */
-define(['jquery', 'knockout', '../services/ehrService.js'],
-function ($, ko, EHRService) {
+define(['jquery', 'knockout', '../services/ehrService.js', '../models/medication.js'],
+function ($, ko, EHRService, Medication) {
 	return function () {
 		var self = this;
 		
@@ -35,7 +35,10 @@ function ($, ko, EHRService) {
 		};
 
 		self.addNewMedication = function () {
-
+			var newMed = new Medication({value:'PAracetemol', dose:'1000mg'});
+			newMed.userCreated(true);
+			newMed.setStatus('Newly added', 'User note here');
+			self.medications.push(newMed);
 		};
 	};
 });
