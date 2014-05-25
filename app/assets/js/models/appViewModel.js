@@ -17,8 +17,14 @@ function ($, ko, EHRService) {
 		self.status = ko.observable('active');
 		self.ehr = new EHRService();
 		self.ehr.login(self.loadMedications);
-
-		self.showModal = function () {
+		self.showModalDoseStopped = function () {
+			console.log('show modal function');
+			var modal = document.getElementById('stoppedDoseModal');
+			console.log('modal is ' + modal);
+			ko.cleanNode(modal);
+			ko.applyBindings(self.medications()[0], modal);
+		};
+		self.showModalDoseChanged = function () {
 			console.log('show modal function');
 			var modal = document.getElementById('changedDoseModal');
 			console.log('modal is ' + modal);
