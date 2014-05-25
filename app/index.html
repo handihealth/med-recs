@@ -154,7 +154,7 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-      <div class="modal fade" id="newMModal">
+      <div class="modal fade" id="newMedsModal">
       <div class="modal-dialog">
       <div class="modal-content">
       <div class="modal-header">
@@ -162,8 +162,12 @@
         <h4 class="modal-title">I have started taking a new medication</h4>
       </div>
       <div class="modal-body">
+	  <p>Name and Preperation</p>
+        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preperation">
+		<p>Dose</p>
+        <input id="txtNewMedDose" type="text" class="form-control" placeholder="New medication dose">
         <p>Because</p>
-        <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
+        <input id="txtNewMedReason" type="text" class="form-control" placeholder="New medication reason">
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
