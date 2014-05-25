@@ -15,8 +15,11 @@ function (ko) {
 			return self.status() !== '';
 		});
 
-		self.setStatus = function (newStatus) {
+		self.setStatus = function (newStatus, note) {
 			self.status(newStatus);
+			if (note !== undefined) {
+				self.setPatientNote(note);
+			}
 		};
 
 		self.setPatientNote = function (newNote) {
