@@ -9,7 +9,15 @@
     <title>medsrecDIY</title>
     <!--CSS generated from SASS 
     -->
+    <!--
     <link href="assets/css/main.css" rel="stylesheet">
+  -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
+  <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
     <!--HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
     -->
     <!--if lt IE 9
@@ -18,49 +26,71 @@
     -->
   </head>
   <body>
-    <div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">med recs</a>
+    <div class="col-md-12">
+            <div class="well demographics" style="position: relative">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="hopd-pic"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                        <h4>Patient Controlled Medical Reconciliations Portal</h4>
+                    </div>
+                    </div>
+                </div>
+             </div>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <!--/.nav-collapse 
-        -->
-      </div>
-    </div>
-
-
-    <div id="medsContainer" class="container">
+        <div class="col-md-12">
+            <div class="well demographics" style="position: relative">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="patient-pic"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="patient-info">
+                            <h4 id="patient-name"></h4>
+                            <p>Age: <span class="patient-age"></span></p>
+                            <p>Gender: <span id="patient-gender"></span></p>
+                            <p>DOB: <span class="patient-dob"></span></p>
+                            <p>Address: <span> - </span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="ver-spacer left">
+                            <div class="mask"></div>
+                        </div>
+                        <div class="patient-team">
+                            <p>Healthcare team:</p>
+                            <div class="doc-pic"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+            
+    <div id="medsContainer" class="container col-md-12">
       <div id="home">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1>medsrecDIY running!</h1>
-          </div>
+
           <div class="col-md-2 col-md-offset-10 row">
           <button class="btn btn-primary" 
-          data-toggle="modal" data-target="#newMedsModal">Add a new Medication</button>
-		  <button class="btn btn-default" 
-		  data-bind="click: sendData" >Send</button>
-       
+                  data-toggle="modal" 
+                  data-target="#newMedsModal">Add a new Medication</button>
+		      <button class="btn btn-default" 
+		              data-bind="click: sendData" >Send</button>
         </div>
         </div>
         
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <h3>Our records show</h3>
+              <h5>Our records show</h5>
             </div>
             <div class="col-md-4">
 
             </div>
             <div class="col-md-4">
-              <h3>Your updated records</h3>
+              <h5>Your updated records</h5>
             </div>
           </div>
         </div>
@@ -196,5 +226,6 @@
 
     <script>window.knockoutBootstrapDebug = true;</script>
     <script data-main="assets/js/config" src="bower_components/requirejs/require.js"></script>
+    <script src="https://bootflat.github.io/bootflat/js/icheck.min.js"></script>
   </body>
 </html>
