@@ -11,5 +11,6 @@ define(['jquery',
   var UI = new AppViewModel();
 
   ko.applyBindings(UI, document.getElementById('medsContainer'));
+  ko.applyBindings(UI, document.getElementById('demographicsContainer'));
 
 });

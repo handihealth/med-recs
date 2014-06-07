@@ -4,9 +4,7 @@ $fa-font-path: '../../bower_components/font-awesome/fonts';
 
 $icon-font-path: '../../bower_components/bootstrap-sass/fonts';
 //@import 'bootstrap-sass/lib/bootstrap';
-
-@import '../../bower_components/bootflat/bootstrap/bootstrap.css';
-@import '../../bower_components/bootflat/css/bootflat.css';
-
+@import 'bootflat/bootflat/scss/bootflat';
+ 
 // Put all your custom style there
 @import 'app';

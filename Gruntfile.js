@@ -219,10 +219,12 @@ module.exports = function (grunt) {
       html: {
         files: '<%= yeoman.app %>/*.html'
       },
+      /*
       compass: {
         files: '<%= yeoman.app %>/assets/scss/*.scss',
         tasks: ['compass:server']
       },
+      */
       test: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -289,7 +291,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'replace:dist',
-    'compass:dist',
+    //'compass:dist',
     'requirejs',
     'concat',
     'copy',
@@ -314,7 +316,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'replace:server',
-      'compass:server',
+      //'compass:server',
       'connect:livereload',
       'open:server',
       'focus:dev'
@@ -327,7 +329,7 @@ module.exports = function (grunt) {
     var testTasks = [
       'clean',
       'replace:server',
-      'compass',
+      //'compass',
       'connect:test',
       'mocha',
       'open:test',

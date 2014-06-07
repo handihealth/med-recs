@@ -2,21 +2,28 @@
 
 /* global define:true*/
 /* global document:true */
-define(['jquery', 'knockout', '../services/ehrService.js', '../models/medication.js'],
-function ($, ko, EHRService, Medication) {
+define(['jquery', 'knockout', '../services/ehrService.js', '../models/medication.js', '../models/user.js'],
+function ($, ko, EHRService, Medication, User) {
 	return function () {
 		var self = this;
 		
 		self.medications = ko.observableArray();
 
-		self.loadMedications = function () {
-			console.log('loading meds');
+		self.loadStartingData = function () {
 			self.ehr.getUKMedications(self.medications);
+			self.ehr.getUserData(self.setUser);
 		};
 
+		self.setUser = function (userData) {
+			console.log(userData);
+			self.user(new User(userData));
+			console.log('set user');
+		}
+
+		self.user = ko.observable(new User());
 		self.status = ko.observable('active');
 		self.ehr = new EHRService();
-		self.ehr.login(self.loadMedications);
+		self.ehr.login(self.loadStartingData);
 
 		self.showModalDoseStopped = function (med, event) {
 			console.log('show modal function');

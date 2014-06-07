@@ -12,11 +12,12 @@
     <!--
     <link href="assets/css/main.css" rel="stylesheet">
   -->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
-  <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="bower_components/bootflat/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootflat/bf.css">
+  <link rel="stylesheet" href="bower_components/bootflat/bf.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"  type="text/css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" >
+  <link rel="stylesheet" href="assets/css/style.css" >
 
     <!--HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
     -->
@@ -41,16 +42,18 @@
              </div>
         </div>
         <div class="col-md-12">
-            <div class="well demographics" style="position: relative">
+            <div id="demographicsContainer" class="well demographics" style="position: relative">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="patient-pic"></div>
+                        <span data-bind="text: user().fullName"/>
+                              
                     </div>
                     <div class="col-md-6">
                         <div class="patient-info">
                             <h4 id="patient-name"></h4>
-                            <p>Age: <span class="patient-age"></span></p>
-                            <p>Gender: <span id="patient-gender"></span></p>
+                            <p>Age: <span class="patient-age" data-bind="text: user().age"></span></p>
+                            <p>Gender: <span id="patient-gender" data-bind="text: user().gender"></span></p>
                             <p>DOB: <span class="patient-dob"></span></p>
                             <p>Address: <span> - </span></p>
                         </div>

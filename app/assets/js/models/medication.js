@@ -15,7 +15,7 @@ function (ko) {
 		self.statusSet = ko.computed(function () {
 			return self.status() !== '';
 		});
-		self.coloredstatus = ko.computed(function() {
+		self.coloredstatus = ko.computed(function () {
 			var Color;
 			switch (self.status()) {
 				case 'As prescribed':  Color = 'green'; break;
@@ -41,6 +41,5 @@ function (ko) {
 			self.patientNote(newNote);
 		};
 
-		
 	};
 });
