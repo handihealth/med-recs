@@ -1,5 +1,12 @@
 # med recs
 
+## Notes:
+This project was built using the 'yeoman' JS scaffolding system, which sets up the basic project structure.
+Grunt is used to build the app - this consists of compiling the scss files to css using SASS, and concatenating and
+minifying the javascript.  To do this run 'grunt build'.  The dist directory will contain the output, there is a
+build in this repo's dist directory for people just wanting to have a few files to chuck on a web server.
+
+
 ## Getting Started
 
 Make sure you have the latest packages installed
