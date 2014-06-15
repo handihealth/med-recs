@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>medsrecDIY</title>
+    <!--CSS generated from SASS 
+    -->
+    <!--
+    <link href="assets/css/main.css" rel="stylesheet">
+  -->
+  <!--
+  <link rel="stylesheet" href="bower_components/bootflat/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootflat/bf.css">
+  <link rel="stylesheet" href="bower_components/bootflat/bf.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"  type="text/css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" >
+-->
+  <link rel="stylesheet" href="assets/css/main.css" >
+  <link rel="stylesheet" href="assets/css/style.css" >
+
+    <!--HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+    -->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    -->
+  </head>
+  <body>
+    <div class="col-md-12">
+            <div class="well demographics" style="position: relative">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="hopd-pic"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                        <h4>Patient Controlled Medical Reconciliations Portal</h4>
+                    </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-12">
+            <div id="demographicsContainer" class="well demographics" style="position: relative">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="patient-pic"></div>
+                        <span data-bind="text: user().fullName"/>
+                              
+                    </div>
+                    <div class="col-md-6">
+                        <div class="patient-info">
+                            <h4 id="patient-name"></h4>
+                            <p>Age: <span class="patient-age" data-bind="text: user().age"></span></p>
+                            <p>Gender: <span id="patient-gender" data-bind="text: user().gender"></span></p>
+                            <p>DOB: <span class="patient-dob"></span></p>
+                            <p>Address: <span> - </span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="ver-spacer left">
+                            <div class="mask"></div>
+                        </div>
+                        <div class="patient-team">
+                            <p>Healthcare team:</p>
+                            <div class="doc-pic"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+            
+    <div id="medsContainer" class="container col-md-12">
+      <div id="home">
+        <div class="row">
+
+          <div class="col-md-2 col-md-offset-10 row">
+          <button class="btn btn-primary" 
+                  data-toggle="modal" 
+                  data-target="#newMedsModal">Add a new Medication</button>
+		      <button class="btn btn-default" 
+		              data-bind="click: sendData" >Send</button>
+        </div>
+        </div>
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h5>Our records show</h5>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+              <h5>Your updated records</h5>
+            </div>
+          </div>
+        </div>
+
+        <div data-bind="foreach: medications" class="container">
+          <div class="row panel panel-default">
+            <div class="panel-body" data-bind="style: { background: coloredstatus() }">
+              <div class="panel panel-default col-md-4" data-bind="style: function(data){ if (data.notUserCreated()) {return {visibility:'hidden'};} else {return {visibility:'hidden'};}}">
+                <div class="panel-body" data-bind="visible: notUserCreated">
+                  <p data-bind="text: name"/>
+                  <p data-bind="text: originalDose"/>
+                </div>
+              </div>
+              
+              <div class="col-md-4" >
+                <div btn="btn-group-vertical" data-bind="visible: notUserCreated">
+                      <button data-bind="click: function(med, event) { med.setStatus('As prescribed') }" 
+                              class="btn btn-default" 
+                              style="width:100%; color:green; font-weight:bold;" 
+                              type="submit"><i class="fa fa-check"></i> I take this as prescribed</button>
+
+                      <button class="btn btn-default" 
+							                style="width:100%; color:#FBB917; font-weight:bold;" 
+                              data-bind="click: $root.showModalDoseChanged"
+                              data-toggle="modal" data-target="#changedDoseModal"><i class="fa fa-exclamation-triangle"></i> I take a different dose</button>
+                      
+                      <button class="btn btn-default" 
+							                style="width:100%; color:red; font-weight:bold;" 
+                              data-bind="click: $root.showModalDoseStopped"
+                              data-toggle="modal" data-target="#stoppedDoseModal"><i class="fa fa-times"></i> I don't take this at all</button>					  
+                    
+
+
+                </div>
+              </div>
+    
+              <div data-bind="visible: statusSet" class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p data-bind="text: name"/>
+                    <p data-bind="text: newDose"/>
+                    <p data-bind="text: status"/>  
+                    <p> <b data-bind="text: patientNote"></b></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div></div>
+
+        
+
+      </div>
+
+      <div class="modal fade" id="newMedsModal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">I have started taking a new medication</h4>
+      </div>
+      <div class="modal-body">
+    <p>Name and Preparation</p>
+        <input id="txtNewMedName" type="text" class="form-control" placeholder="New medication name and preparation">
+    <p>Dose</p>
+        <input id="txtNewMedDose" type="text" class="form-control" placeholder="New medication dose">
+        <p>Because</p>
+        <input id="txtNewMedReason" type="text" class="form-control" placeholder="New medication reason">
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button data-bind="click: function(appVM, event){ 
+                                      var name = $('#txtNewMedName').val();
+                                      var dose = $('#txtNewMedDose').val();
+                                      var reason = $('#txtNewMedReason').val();
+                                      appVM.addNewMedication(name, dose, reason);
+                                      $('#txtNewMedName').val('');
+                                      $('#txtNewMedDose').val('');
+                                      $('#txtNewMedReason').val(''); }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+    </div>
+
+
+<!--        <div class="row">
+          <p class="col-md-6 col-md-offset-3 entry-home alert-success"><span><a href="http://fortawesome.github.io/Font-Awesome">Font Awesome icons </a>are available</span><i class="fa fa-check-square-o"></i></p>
+        </div>-->
+  <div class="modal fade" id="stoppedDoseModal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">I have stopped taking <span data-bind="text: name" /></h4>
+      </div>
+      <div class="modal-body">
+        <p><b>Because</b></p>
+        <input id="txtNotTakingReason" type="text" class="form-control" placeholder="Reason">
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button data-bind="click: function(med, event){ 
+                                      med.setStatus('Not Taking',$('#txtNotTakingReason').val());
+                                      $('#txtNotTakingReason').val('') }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    <div class="modal fade" id="changedDoseModal">
+      <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">I take a different dose of <span data-bind="text: name" /></h4>
+      </div>
+      <div class="modal-body">
+        <p><b>Because</b></p>
+        <input id="txtChangedDoseReason" type="text" class="form-control" placeholder="New dose and reason">
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button data-bind="click: function(med, event){ 
+                                      med.setStatus('Changed Dose',$('#txtChangedDoseReason').val());
+                                      $('#txtChangedDoseReason').val('') }" 
+                                      data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+    
+    <script src="assets/js/require.min.js"></script>
+    <script src="https://bootflat.github.io/bootflat/js/icheck.min.js"></script>
+  </body>
+</html>
