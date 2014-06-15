@@ -57,10 +57,10 @@ module.exports = function (grunt) {
         overwrite: true,
         replacements: [{
           from: /\$icon\-font\-path:.*/g,
-          to: '$icon-font-path: \'../../bower_components/bootstrap-sass/fonts\';'
+          to: '$icon-font-path: \'../../bower_components/bootstrap-sass/fontsX\';'
         }, {
           from: /\$fa\-font\-path:.*/g,
-          to: '$fa-font-path: \'../../bower_components/font-awesome/fonts\';'
+          to: '$fa-font-path: \'../../bower_components/font-awesome/fontsX\';'
         }]
       }
     },
@@ -114,6 +114,30 @@ module.exports = function (grunt) {
           }
         ]
       },
+      css: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/assets/css',
+            dest: 'dist/assets/css',
+            src: [
+              '*'
+            ]
+          }
+        ]
+      },
+      images: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/assets/img',
+            dest: 'dist/assets/img',
+            src: [
+              '*'
+            ]
+          }
+        ]  
+      },
       projectfiles: {
         files: [
           {
@@ -128,7 +152,8 @@ module.exports = function (grunt) {
         ]
       }
     },
-    compass: {
+    sass: {
+      /*
       options: {
         sassDir: '<%= yeoman.app %>/assets/scss',
         imagesDir: '<%= yeoman.app %>/assets/images',
@@ -137,17 +162,18 @@ module.exports = function (grunt) {
         importPath: '<%= yeoman.app %>/bower_components',
         relativeAssets: true,
         debugInfo: false
+      },*/
+      options: {
+        loadPath: '<%= yeoman.app %>/bower_components'
       },
       dist: {
-        options: {
-          cssDir: 'dist/assets/css',
-          noLineComments: true,
-          outputStyle: 'compressed'
+        files: {
+          '<%= yeoman.app %>/assets/css/main.css':'<%= yeoman.app %>/assets/scss/main.scss'
         }
       },
       server: {
-        options: {
-          cssDir: '<%= yeoman.app %>/assets/css'
+        files: {
+          '<%= yeoman.app %>/assets/css/main.css':'<%= yeoman.app %>/assets/scss/main.scss'
         }
       }
     },
@@ -219,12 +245,10 @@ module.exports = function (grunt) {
       html: {
         files: '<%= yeoman.app %>/*.html'
       },
-      /*
-      compass: {
+      sass: {
         files: '<%= yeoman.app %>/assets/scss/*.scss',
-        tasks: ['compass:server']
+        tasks: ['sass:server']
       },
-      */
       test: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -291,7 +315,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'replace:dist',
-    //'compass:dist',
+    'sass:dist',
     'requirejs',
     'concat',
     'copy',
@@ -316,7 +340,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'replace:server',
-      //'compass:server',
+      'sass:server',
       'connect:livereload',
       'open:server',
       'focus:dev'
@@ -329,7 +353,7 @@ module.exports = function (grunt) {
     var testTasks = [
       'clean',
       'replace:server',
-      //'compass',
+      'sass',
       'connect:test',
       'mocha',
       'open:test',
