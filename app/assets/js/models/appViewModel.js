@@ -2,7 +2,7 @@
 
 /* global define:true*/
 /* global document:true */
-define(['jquery', 'knockout', '../services/ehrService.js', '../models/medication.js', '../models/user.js'],
+define(['jquery', 'knockout', 'services/ehrService', 'models/medication', 'models/user'],
 function ($, ko, EHRService, Medication, User) {
 	return function () {
 		var self = this;

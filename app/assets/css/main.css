@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.1.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
+  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0");
+  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 .fa {
@@ -3515,8 +3515,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fontsglyphicons-halflings-regular.eot");
-  src: url("../fontsglyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fontsglyphicons-halflings-regular.woff") format("woff"), url("../fontsglyphicons-halflings-regular.ttf") format("truetype"), url("../fontsglyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../../bower_components/bootstrap-sass/fontsglyphicons-halflings-regular.eot");
+  src: url("../../bower_components/bootstrap-sass/fontsglyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../bower_components/bootstrap-sass/fontsglyphicons-halflings-regular.woff") format("woff"), url("../../bower_components/bootstrap-sass/fontsglyphicons-halflings-regular.ttf") format("truetype"), url("../../bower_components/bootstrap-sass/fontsglyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;

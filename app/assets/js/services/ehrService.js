@@ -1,7 +1,7 @@
 'use strict';
 
 /* global define:true*/
-define(['jquery', '../models/medication.js'],
+define(['jquery', 'models/medication'],
 function ($, Medication) {
 	return function () {
 		var self = this;

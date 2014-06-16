@@ -57,10 +57,10 @@ module.exports = function (grunt) {
         overwrite: true,
         replacements: [{
           from: /\$icon\-font\-path:.*/g,
-          to: '$icon-font-path: \'../../bower_components/bootstrap-sass/fontsX\';'
+          to: '$icon-font-path: \'../../bower_components/bootstrap-sass/fonts\';'
         }, {
           from: /\$fa\-font\-path:.*/g,
-          to: '$fa-font-path: \'../../bower_components/font-awesome/fontsX\';'
+          to: '$fa-font-path: \'../../bower_components/font-awesome/fonts\';'
         }]
       }
     },

@@ -4,7 +4,7 @@
 /* global document:true*/
 define(['jquery',
     'knockout',
-    '../../assets/js/models/appViewModel.js',
+    'models/appViewModel',
     'jquery.bootstrap'
     ], function ($, ko, AppViewModel) {
 
