@@ -1,8 +1,8 @@
 
-$fa-font-path: '../fonts';
+$fa-font-path: '../../bower_components/font-awesome/fonts';
 @import 'font-awesome/scss/font-awesome';
 
-$icon-font-path: '../fonts';
+$icon-font-path: '../../bower_components/bootstrap-sass/fonts';
 @import 'bootstrap-sass/lib/bootstrap';
 @import 'Bootflat/bootflat/scss/bootflat';
  
