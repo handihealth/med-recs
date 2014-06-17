@@ -18,14 +18,14 @@ function ($, ko, EHRService, Medication, User) {
 			console.log(userData);
 			self.user(new User(userData));
 			console.log('set user');
-		}
+		};
 
 		self.user = ko.observable(new User());
 		self.status = ko.observable('active');
 		self.ehr = new EHRService();
 		self.ehr.login(self.loadStartingData);
 
-		self.showModalDoseStopped = function (med, event) {
+		self.showModalDoseStopped = function (med) {
 			console.log('show modal function');
 			var modal = document.getElementById('stoppedDoseModal');
 			console.log('modal is ' + modal);
@@ -33,7 +33,7 @@ function ($, ko, EHRService, Medication, User) {
 			ko.applyBindings(med, modal);
 		};
 
-		self.showModalDoseChanged = function (med, event) {
+		self.showModalDoseChanged = function (med) {
 			console.log('show modal function');
 			var modal = document.getElementById('changedDoseModal');
 			console.log('modal is ' + modal);
@@ -51,6 +51,6 @@ function ($, ko, EHRService, Medication, User) {
 
 		self.sendData = function () {
 			self.ehr.postUpdateMedications(self.medications());
-		}
+		};
 	};
 });

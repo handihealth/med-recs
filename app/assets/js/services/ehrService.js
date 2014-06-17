@@ -1,6 +1,7 @@
 'use strict';
 
 /* global define:true*/
+/* global alert:true*/
 define(['jquery', 'models/medication'],
 function ($, Medication) {
 	return function () {
@@ -32,7 +33,7 @@ function ($, Medication) {
             		success: function (data) {
             			callback(data.party);
             		}
-				})
+				});
 			/*
 			function patientData() {
         return $.ajax({
@@ -82,7 +83,7 @@ function ($, Medication) {
     }
 
 			*/
-		}
+		};
 
 		self.getUKMedications = function (arrayToStoreResults) {
 			$.ajax({type: 'GET',
@@ -214,8 +215,8 @@ function ($, Medication) {
 				            }
 				        ]
 				    }
-				}
+				};
 		};
 
 	
-}});
+};});
