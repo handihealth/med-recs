@@ -1,6 +1,6 @@
 'use strict';
 var SERVER_PORT = 9000;
-var TEST_PORT = 9000;
+var TEST_PORT = 9001;
 var LIVERELOAD_PORT = 35729;
 var liveReloadSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
@@ -153,16 +153,6 @@ module.exports = function (grunt) {
       }
     },
     sass: {
-      /*
-      options: {
-        sassDir: '<%= yeoman.app %>/assets/scss',
-        imagesDir: '<%= yeoman.app %>/assets/images',
-        javascriptDir: '<%= yeoman.app %>/assets/js',
-        fontsDir: '<%= yeoman.app %>/assets/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
-        relativeAssets: true,
-        debugInfo: false
-      },*/
       options: {
         loadPath: '<%= yeoman.app %>/bower_components'
       },
